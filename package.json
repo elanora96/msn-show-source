@@ -1,14 +1,19 @@
 {
   "name": "msn-show-source",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "tsc -b && node ./addMetaData.js",
     "prepare": "husky"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elanora96/msn-show-source.git"
+  },
   "keywords": [
-    "userscript"
+    "userscript",
+    "typescript"
   ],
   "author": "Elanora Manson",
   "license": "ISC",
@@ -34,6 +39,8 @@
     ],
     "grant": [
       "none"
-    ]
+    ],
+    "downloadURL": "https://github.com/elanora96/msn-show-source/releases/latest/download/userscript.js",
+    "homepageURL": "https://github.com/elanora96/msn-show-source"
   }
 }

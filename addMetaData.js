@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import __importedPackageJSON from './package.json' with { type: 'json' };
+import prettier from 'prettier';
 
 /**
  * @typedef {Object} PackageJson
@@ -62,8 +63,14 @@ ${Object.entries(metadata)
   .join('\n')}
 // ==/UserScript==\n\n`;
 
-const outputPath = path.join(__dirname, 'dist', 'index.js');
+const tscOutputFile = path.join(__dirname, 'dist', 'index.js');
+const thisOutputFile = path.join(__dirname, 'dist', 'userscript.js');
 /** @type {string} */
-const scriptContent = fs.readFileSync(outputPath, 'utf8');
+const scriptContent = fs.readFileSync(tscOutputFile, 'utf8');
 
-fs.writeFileSync(outputPath, output.concat(scriptContent), 'utf8');
+prettier
+  .format(output.concat(scriptContent), { parser: 'babel-ts' })
+  .then((formatted) => {
+    fs.writeFileSync(thisOutputFile, formatted, 'utf8');
+    fs.unlinkSync(tscOutputFile);
+  });
