@@ -1,0 +1,39 @@
+{
+  "name": "msn-show-source",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -b && node ./addMetaData.js",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "userscript"
+  ],
+  "author": "Elanora Manson",
+  "license": "ISC",
+  "description": "Add the source article to MSN News",
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/node": "^22.5.0",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.2.0"
+  },
+  "userscript": {
+    "namespace": "Violentmonkey Scripts",
+    "match": [
+      "*://*.msn.com/*/news/*",
+      "*://msn.com/*/news/*"
+    ],
+    "grant": [
+      "none"
+    ]
+  }
+}
