@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     tags:
-      - 'v*.*.*'
+      - "v*.*.*"
 
 permissions:
   contents: write
@@ -15,16 +15,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Nix
+        uses: cachix/install-nix-action@v30
         with:
-          node-version: 22
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: nix build
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            ./dist/userscript.js
+            ./result/dist/userscript.js

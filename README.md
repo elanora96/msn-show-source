@@ -7,9 +7,10 @@ Intended for my personal use with [Violent Monkey](https://violentmonkey.github.
 ## Install
 
 1. Install a userscript manager (like the two listed above)
-2. Grab a release:
 
-   | Tag    | Links                                                                                                                                                                      | Notes         |
+1. Grab a release:
+
+   | Tag | Links | Notes |
    | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
    | Latest | [Github](https://github.com/elanora96/msn-show-source/releases/latest/download/userscript.js)<br />[Greasy Fork](https://greasyfork.org/en/scripts/504602-msn-show-source) | \*Recommended |
 
@@ -26,6 +27,6 @@ Requirements:
 In the cloned repo:
 
 1. Install dependencies with `npm install`
-2. Run the provided `build` script with `npm run build`
+1. Run the provided `build` script with `npm run build`
 
 Then you may use your userscript manager to install `./dist/userscript.js`
